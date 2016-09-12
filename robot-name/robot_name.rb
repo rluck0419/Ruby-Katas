@@ -14,11 +14,7 @@ class Robot
 
   def create_name
     Kernel.srand
-    @name = new_name
-  end
-
-  def new_name
-    LETTERS.sample + LETTERS.sample + NUMS.sample + NUMS.sample + NUMS.sample
+    @name = LETTERS.sample + LETTERS.sample + NUMS.sample + NUMS.sample + NUMS.sample
   end
 end
 
