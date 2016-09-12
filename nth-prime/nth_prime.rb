@@ -8,6 +8,7 @@ class Prime
       is_prime = true
       primes.each do |f|
         is_prime = false if prime % f == 0
+        break if is_prime == false
       end
       primes << prime if is_prime
     end
