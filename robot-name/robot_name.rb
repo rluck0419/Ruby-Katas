@@ -18,13 +18,7 @@ class Robot
   end
 
   def new_name
-    alpha_one = LETTERS.sample
-    alpha_two = LETTERS.sample
-    num_one = NUMS.sample
-    num_two = NUMS.sample
-    num_three = NUMS.sample
-
-    alpha_one + alpha_two + num_one + num_two + num_three
+    LETTERS.sample + LETTERS.sample + NUMS.sample + NUMS.sample + NUMS.sample
   end
 end
 
