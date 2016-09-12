@@ -1,39 +1,30 @@
 class Robot
-  @names = []
-
   attr_reader :name
-
-  def self.add_name(name)
-    @names << name
-  end
-
-  def self.valid_name?(name)
-    !@names.include?(name)
-  end
-
   def initialize
-    set_name
+    create_name
   end
 
   def reset
-    set_name
+    create_name
   end
 
   private
+  LETTERS = ('A'..'Z').to_a
+  NUMS = (0..9).to_a.map { |n| n.to_s }
 
-  def set_name
-    @name = generate_name
+  def create_name
+    Kernel.srand
+    @name = new_name
   end
 
-  def generate_name
-    loop do
-      name_candidate = ([*'A'..'Z'].shuffle.take(2) + [*1..9].shuffle.take(3)).join
+  def new_name
+    alpha_one = LETTERS.sample
+    alpha_two = LETTERS.sample
+    num_one = NUMS.sample
+    num_two = NUMS.sample
+    num_three = NUMS.sample
 
-      if self.class.valid_name?(name_candidate)
-        self.class.add_name(name_candidate)
-        break name_candidate
-      end
-    end
+    alpha_one + alpha_two + num_one + num_two + num_three
   end
 end
 
