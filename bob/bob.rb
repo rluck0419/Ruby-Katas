@@ -1,18 +1,18 @@
 class Bob
   def hey(remark)
     return 'Fine. Be that way!' if remark.strip.length == 0
-    if remark[-1] == "?"
-      if remark.match(/[a-z]|\d/)
+    if low_energy?(remark)
+      if remark[-1] == "?"
         'Sure.'
       else
-        'Whoa, chill out!'
+        'Whatever.'
       end
     else
-      if remark.match(/[a-z]/) || remark.match(/\d/) && !remark.match(/[A-Z]/)
-        'Whatever.'
-      else
-        'Whoa, chill out!'
-      end
+      'Whoa, chill out!'
     end
+  end
+
+  def low_energy?(string)
+    string.match(/[a-z]/) || string.match(/\d/) && !string.match(/[A-Z]/)
   end
 end
