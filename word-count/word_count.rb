@@ -6,13 +6,9 @@ class Phrase
   end
 
   def word_count
-    word_count = {}
+    word_count = Hash.new(0)
     @words.map do |w|
-      if word_count[w]
-        word_count[w] += 1
-      else
-        word_count[w] = 1
-      end
+      word_count[w] += 1
     end
     word_count
   end
