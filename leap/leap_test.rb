@@ -36,12 +36,10 @@ class YearTest < Minitest::Test
   end
 
   def test_leap_twenty_fourth_century
-    skip
     assert Year.leap?(2400), "Expected 'true', 2400 is a leap year."
   end
 
   def test_leap_y2k
-    skip
     assert Year.leap?(2000), "Expected 'true', 2000 is a leap year."
   end
 
@@ -63,7 +61,6 @@ class YearTest < Minitest::Test
   # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
 
   def test_bookkeeping
-    skip
     assert_equal 2, BookKeeping::VERSION
   end
 end
