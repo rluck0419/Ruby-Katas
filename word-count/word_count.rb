@@ -1,8 +1,7 @@
 class Phrase
   def initialize(phrase)
     @words = phrase.downcase.gsub(/[^a-zA-Z\d']/, " ").split(" ").map do |w|
-      w = w.gsub("'", "") if w[0] == "'" && w[-1] == "'"
-      w
+      w.gsub(/\A'|'\Z/, '')
     end
   end
 
