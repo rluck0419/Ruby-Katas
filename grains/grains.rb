@@ -1,4 +1,5 @@
 class Grains
-  def square(n)
+  def self.square(n)
+    n
   end
 end
