@@ -1,28 +1,24 @@
 class Prime
   def self.nth(n)
-    # raise error if the argument is less than 1
-    raise ArgumentError unless n > 0
+    fail ArgumentError if n < 1
 
-    # initialize first prime and primes array
-    prime = 2
-    primes = [prime]
+    primes = [2, 3]
 
-    until primes.length == n
-      # initializing for prime test...
-      prime += 1
-      is_prime = true
-
-      # check primes for possible factors...
-      primes.each do |f|
-        is_prime = false if prime % f == 0
-        break if is_prime == false
-      end
-
-      # add to primes array if no factors are found...
-      primes << prime if is_prime
+    i = primes.last + 2
+    while primes.length < n
+      primes << i if prime?(i, primes)
+      i += 2
     end
 
-    # return last prime number added to array (n)
-    primes.last
+    primes[n-1]
+  end
+
+  private
+
+  def self.prime?(num, primes)
+    primes.all? do |prime|
+      return true if prime > Math.sqrt(num)
+      num % prime != 0
+    end
   end
 end
