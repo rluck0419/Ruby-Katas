@@ -7,7 +7,7 @@ class Grains
     remaining = 64
     grains = 0
     while remaining > 0
-      grains += self.square(remaining)
+      grains += square(remaining)
       remaining -= 1
     end
     grains
