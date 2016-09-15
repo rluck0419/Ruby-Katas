@@ -27,12 +27,22 @@ class RunLengthEncoding
     i = 0
     until i >= letters.length
       current = letters[i]
-      if Float(current)
-        current.to_i.times do
-          output += letters[i+1]
+      if (true if Float(current) rescue false)
+        if (true if Float(letters[i+1]) rescue false)
+          (current + letters[i+1]).to_i.times do
+            output += letters[i+2]
+          end
+          i += 3
+        else
+          current.to_i.times do
+            output += letters[i+1]
+          end
+          i += 2
         end
+      else
+        output += current
+        i += 1
       end
-      i += 2
     end
     output
   end
