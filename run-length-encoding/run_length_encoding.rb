@@ -2,11 +2,13 @@ class RunLengthEncoding
   def self.encode(string)
     letters = string.split("")
     output = ""
-    count = 0
 
     until letters.empty?
       current = letters.first
-      while letters.shift == current
+      count = 0
+
+      while letters.first == current
+        letters.shift
         count += 1
       end
       if count > 1
@@ -14,7 +16,6 @@ class RunLengthEncoding
       else
         output += current
       end
-      count = 1
     end
     output
   end
@@ -23,6 +24,16 @@ class RunLengthEncoding
     letters = string.split("")
     output = ""
 
-    'AABBBCCCC'
+    i = 0
+    until i >= letters.length
+      current = letters[i]
+      if Float(current)
+        current.to_i.times do
+          output += letters[i+1]
+        end
+      end
+      i += 2
+    end
+    output
   end
 end
