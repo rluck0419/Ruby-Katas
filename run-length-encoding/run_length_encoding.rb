@@ -21,30 +21,11 @@ class RunLengthEncoding
   end
 
   def self.decode(string)
-    letters = string.split("")
-    output = ""
-
-    i = 0
-    until i >= letters.length
-      current = letters[i]
-      if (true if Float(current) rescue false)
-        if (true if Float(letters[i+1]) rescue false)
-          (current + letters[i+1]).to_i.times do
-            output += letters[i+2]
-          end
-          i += 3
-        else
-          current.to_i.times do
-            output += letters[i+1]
-          end
-          i += 2
-        end
-      else
-        output += current
-        i += 1
-      end
+    string.scan(/(\d+)?(\D)/).each_with_object("") do |x, output|
+      amount = (x[0] || 1).to_i
+      s = x[-1]
+      output << s * amount
     end
-    output
   end
 end
 
