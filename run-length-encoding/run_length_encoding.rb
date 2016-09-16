@@ -1,23 +1,13 @@
 class RunLengthEncoding
-  def self.encode(string)
-    letters = string.split("")
-    output = ""
-
-    until letters.empty?
-      current = letters.first
-      count = 0
-
-      while letters.first == current
-        letters.shift
-        count += 1
-      end
-      if count > 1
-        output += count.to_s + current
-      else
-        output += current
-      end
+  def self.encode(string, output = "")
+    return output if string.length.zero?
+    n = 0
+    while string[n] == string[0]
+      n+=1
     end
-    output
+    output << "#{n.to_s if n > 1}#{string[0]}"
+    string.slice!(0...n)
+    return encode(string, output)
   end
 
   def self.decode(string)
