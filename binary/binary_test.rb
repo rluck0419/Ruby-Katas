@@ -56,17 +56,14 @@ class BinaryTest < Minitest::Test
   end
 
   def test_a_number_with_leading_non_binary_characters_is_invalid
-    skip
     assert_raises(ArgumentError) { Binary.new('nope10') }
   end
 
   def test_a_number_with_internal_non_binary_characters_is_invalid
-    skip
     assert_raises(ArgumentError) { Binary.new('10nope10') }
   end
 
   def test_a_number_and_a_word_whitespace_spearated_is_invalid
-    skip
     assert_raises(ArgumentError) { Binary.new('001 nope') }
   end
 
