@@ -1,7 +1,8 @@
 class SumOfMultiples
-  def initialize()
+  def initialize(*args)
+    @factors = args
   end
 
-  def to()
+  def to(num, result = 0)
   end
 end
