@@ -12,7 +12,6 @@ class BinaryTest < Minitest::Test
   end
 
   def test_binary_1_is_decimal_1
-    skip
     assert_equal 1, Binary.new('1').to_decimal
   end
 

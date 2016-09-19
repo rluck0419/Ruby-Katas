@@ -4,7 +4,7 @@ class Binary
   end
 
   def to_decimal
-    @num
+    @num * 2 ** 0
   end
 end
 
