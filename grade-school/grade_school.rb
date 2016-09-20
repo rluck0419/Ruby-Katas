@@ -1,34 +1,22 @@
 class School
   def initialize
-    @students = {}
+    @school = []
   end
 
   def add(student, grade)
-    @students.merge!(student => grade)
+    @school[grade] = { grade: grade, students: [] } if @school[grade].nil?
+    @school[grade][:students] += [student]
+    @school[grade][:students].sort!
   end
 
   def students(grade)
-    students = []
-    @students.map do |key, value|
-      students << key if value.to_i == grade
-    end
-    students.sort
+    return [] if @school[grade].nil?
+    @school[grade][:students]
   end
 
   def students_by_grade
-    return [] if @students.empty?
-    students = []
-    grades = []
-    @students.each_value do |grade|
-      grades << grade
-    end
-    grades.sort!.uniq!.each do |grade|
-      students << { grade: grade }
-    end
-    students.each do |grade_hash|
-      grade_hash[:students] = students(grade_hash[:grade]).sort!
-    end
-    students
+    return [] if @school.empty?
+    @school.compact
   end
 end
 
