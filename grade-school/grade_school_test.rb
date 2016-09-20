@@ -58,7 +58,6 @@ class SchoolTest < Minitest::Test
   end
 
   def test_students_by_grade_sorted
-    skip
     school = School.new
     everyone.each do |grade|
       grade[:students].each { |student| school.add(student, grade[:grade]) }
@@ -101,7 +100,6 @@ class SchoolTest < Minitest::Test
   # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
 
   def test_bookkeeping
-    skip
     assert_equal 3, BookKeeping::VERSION
   end
 end

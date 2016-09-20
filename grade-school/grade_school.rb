@@ -17,12 +17,26 @@ class School
 
   def students_by_grade
     students = []
+    grades = []
     return students if @students.empty?
-    student_hash = { grade: 0, students: []}
-    @students.map do |key, value|
-      student_hash.merge!(grade: value.to_i)
-      student_hash[:students] << key
+    @students.each_value do |grade|
+      grades << grade
     end
-    students << student_hash
+    grades = grades.sort.uniq
+    grades.each do |grade|
+      students << { grade: grade }
+    end
+    students.each do |grade_hash|
+      grade_hash[:students] = []
+      @students.each_key do |key|
+        grade_hash[:students] << key.to_s if @students[key] == grade_hash[:grade]
+      end
+      grade_hash[:students].sort!
+    end
+    students
   end
+end
+
+module BookKeeping
+  VERSION = 3
 end
