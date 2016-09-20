@@ -16,19 +16,17 @@ class School
   end
 
   def students_by_grade
+    return [] if @students.empty?
     students = []
     grades = []
-    return students if @students.empty?
     @students.each_value do |grade|
       grades << grade
     end
-    grades = grades.sort.uniq
-    grades.each do |grade|
+    grades.sort!.uniq!.each do |grade|
       students << { grade: grade }
     end
     students.each do |grade_hash|
-      grade_hash[:students] = students(grade_hash[:grade])
-      grade_hash[:students].sort!
+      grade_hash[:students] = students(grade_hash[:grade]).sort!
     end
     students
   end
