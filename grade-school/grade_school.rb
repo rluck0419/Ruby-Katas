@@ -27,10 +27,7 @@ class School
       students << { grade: grade }
     end
     students.each do |grade_hash|
-      grade_hash[:students] = []
-      @students.each_key do |key|
-        grade_hash[:students] << key.to_s if @students[key] == grade_hash[:grade]
-      end
+      grade_hash[:students] = students(grade_hash[:grade])
       grade_hash[:students].sort!
     end
     students
