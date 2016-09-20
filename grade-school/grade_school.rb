@@ -12,6 +12,6 @@ class School
     @students.map do |key, value|
       students << key if value.to_i == grade
     end
-    students
+    students.sort
   end
 end
