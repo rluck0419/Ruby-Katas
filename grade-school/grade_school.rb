@@ -14,4 +14,14 @@ class School
     end
     students.sort
   end
+
+  def students_by_grade
+    students = []
+    return students if @students.empty?
+    student_hash = {}
+    @students.map do |key, value|
+      student_hash.merge!(grade: value.to_i, students: key)
+    end
+    students << student_hash
+  end
 end
