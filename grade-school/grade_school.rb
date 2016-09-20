@@ -4,13 +4,13 @@ class School
   end
 
   def add(student, grade)
-    @students.merge!(grade => student)
+    @students.merge!(student => grade)
   end
 
   def students(grade)
     students = []
     @students.map do |key, value|
-      students << value if key.to_i == grade
+      students << key if value.to_i == grade
     end
     students
   end
