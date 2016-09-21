@@ -9,11 +9,7 @@ class Series
     @digits.length.times do |i|
       digits = @digits.slice(i...length+i).split("")
       break if digits.length < length
-      fixnums = []
-      digits.each do |d|
-        fixnums << d.to_i
-      end
-      output << fixnums
+      output << digits.map { |d| d.to_i }
     end
     output
   end
