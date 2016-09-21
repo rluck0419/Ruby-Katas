@@ -4,7 +4,7 @@ class Series
   end
 
   def slices(length)
-    raise ArgumentError if length > @digits.length
+    raise ArgumentError if @digits.length < length
     output = []
     @digits.length.times do |i|
       digits = @digits.slice(i...length+i).split("")
