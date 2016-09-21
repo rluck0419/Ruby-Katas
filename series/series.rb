@@ -6,7 +6,12 @@ class Series
   def slices(length)
     output = []
     @digits.length.times do |i|
-      output << [@digits[i...i+length].to_i]
+      digits = @digits.slice(i...length+i).split("")
+      fixnums = []
+      digits.each do |d|
+        fixnums << d.to_i
+      end
+      output << fixnums if fixnums.length == length
     end
     output
   end
