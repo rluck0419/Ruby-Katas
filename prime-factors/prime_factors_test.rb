@@ -21,6 +21,7 @@ class PrimeFactorsTest < Minitest::Test
   end
 
   def test_6
+    skip
     assert_equal [2, 3], PrimeFactors.for(6)
   end
 
