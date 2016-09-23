@@ -11,7 +11,6 @@ class PrimeFactors
         factor += 1
       end
     end
-
     output
   end
 end
