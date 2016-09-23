@@ -29,17 +29,14 @@ class PrimeFactorsTest < Minitest::Test
   end
 
   def test_9
-    skip
     assert_equal [3, 3], PrimeFactors.for(9)
   end
 
   def test_27
-    skip
     assert_equal [3, 3, 3], PrimeFactors.for(27)
   end
 
   def test_625
-    skip
     assert_equal [5, 5, 5, 5], PrimeFactors.for(625)
   end
 
