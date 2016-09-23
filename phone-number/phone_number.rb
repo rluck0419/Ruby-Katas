@@ -17,11 +17,8 @@ class PhoneNumber
   end
 
   def number
-    if @num.length == 10
-      @num
-    else
-      '0000000000'
-    end
+    return @num if @num.length == 10
+    '0000000000'
   end
 
   def area_code
