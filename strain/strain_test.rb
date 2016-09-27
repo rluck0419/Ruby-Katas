@@ -13,7 +13,6 @@ class ArrayTest < Minitest::Test
   end
 
   def test_keep_first_and_last
-    skip
     assert_equal [1, 3], [1, 2, 3].keep(&:odd?)
   end
 
