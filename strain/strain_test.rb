@@ -17,19 +17,16 @@ class ArrayTest < Minitest::Test
   end
 
   def test_keep_neither_first_nor_last
-    skip
     assert_equal [2, 4], [1, 2, 3, 4, 5].keep(&:even?)
   end
 
   def test_keep_strings
-    skip
     words = %w(apple zebra banana zombies cherimoya zelot)
     result = words.keep { |word| word.start_with?('z') }
     assert_equal %w(zebra zombies zelot), result
   end
 
   def test_keep_arrays # rubocop:disable Metrics/MethodLength
-    skip
     rows = [
       [1, 2, 3],
       [5, 5, 5],
@@ -44,7 +41,6 @@ class ArrayTest < Minitest::Test
   end
 
   def test_empty_discard
-    skip
     assert_equal [], [].discard { |e| e < 10 }
   end
 
