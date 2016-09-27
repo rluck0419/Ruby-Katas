@@ -9,7 +9,6 @@ class ArrayTest < Minitest::Test
   end
 
   def test_keep_everything
-    skip
     assert_equal [1, 2, 3], [1, 2, 3].keep { |e| e < 10 }
   end
 
