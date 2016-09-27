@@ -1,6 +1,6 @@
 class Array
   def accumulate(result = [], &block)
-    each { |x| result << block.call(x) }
+    each { |x| result << yield(x) }
     result
   end
 end
