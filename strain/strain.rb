@@ -1,9 +1,9 @@
 class Array
-  def keep(&block)
-    self.map { |n| n if block.call(n) }.compact
+  def keep
+    self.map { |n| n if yield(n) }.compact
   end
 
-  def discard(&block)
-    self.map { |n| n unless block.call(n) }.compact
+  def discard
+    self.map { |n| n unless yield(n) }.compact
   end
 end
