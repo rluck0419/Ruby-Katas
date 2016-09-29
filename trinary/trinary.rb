@@ -1,10 +1,10 @@
 class Trinary
   def initialize(n)
-    return 0 unless n.chars.all? { |i| i =~ (/[0|1|2]/) }
     @n = n
   end
 
   def to_decimal
+    return 0 unless @n.chars.all? { |i| i =~ (/[0|1|2]/) }
     length = @n.length
     output = 0
 
@@ -14,4 +14,8 @@ class Trinary
     end
     output
   end
+end
+
+module BookKeeping
+  VERSION = 1 # Where the version number matches the one in the test.
 end

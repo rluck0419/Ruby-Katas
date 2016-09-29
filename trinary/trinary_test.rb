@@ -21,42 +21,34 @@ class TrinaryTest < Minitest::Test
   end
 
   def test_trinary_100_is_decimal_9
-    skip
     assert_equal 9, Trinary.new('100').to_decimal
   end
 
   def test_trinary_112_is_decimal_14
-    skip
     assert_equal 14, Trinary.new('112').to_decimal
   end
 
   def test_trinary_222_is_26
-    skip
     assert_equal 26, Trinary.new('222').to_decimal
   end
 
   def test_trinary_1122000120_is_32091
-    skip
     assert_equal 32_091, Trinary.new('1122000120').to_decimal
   end
 
   def test_invalid_trinary_is_decimal_0
-    skip
     assert_equal 0, Trinary.new('carrot').to_decimal
   end
 
   def test_invalid_trinary_with_digits_is_decimal_0
-    skip
     assert_equal 0, Trinary.new('0a1b2c').to_decimal
   end
 
   def test_invalid_trinary_with_multiline_string
-    skip
     assert_equal 0, Trinary.new("Invalid\n201\nString").to_decimal
   end
 
   def test_number_out_of_range
-    skip
     assert_equal 0, Trinary.new('4').to_decimal
   end
 
@@ -76,7 +68,6 @@ class TrinaryTest < Minitest::Test
   # If you are curious, read more about constants on RubyDoc:
   # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.htm
   def test_bookkeeping
-    skip
     assert_equal 1, BookKeeping::VERSION
   end
 end
