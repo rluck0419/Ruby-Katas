@@ -1,11 +1,7 @@
 class ETL
   def self.transform(old)
-    hash = {}
-    old.each do |key, value|
-      value.each do |x|
-        hash.merge!({x.downcase => key})
-      end
+    old.each_with_object({}) do |(k,v),output|
+      v.each { |x| output[x.downcase] = k }
     end
-    hash
   end
 end
