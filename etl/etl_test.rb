@@ -12,7 +12,6 @@ class TransformTest < Minitest::Test
   end
 
   def test_transform_more_values
-    skip
     old = { 1 => %w(A E I O U) }
     expected = { 'a' => 1, 'e' => 1, 'i' => 1, 'o' => 1, 'u' => 1 }
 
