@@ -4,7 +4,7 @@ class Trinary
   end
 
   def to_decimal
-    return 0 unless @n.chars.all? { |i| i =~ (/[0|1|2]/) }
+    return 0 unless @n.chars.all? { |i| i =~ (/[0-2]/) }
     length = @n.length
     output = 0
 
