@@ -14,12 +14,10 @@ class GameTest < Minitest::Test
   end
 
   def test_must_have_a_score
-    skip
     assert_respond_to @game, :score
   end
 
   def test_should_be_able_to_score_open_frame
-    skip
     @game.roll(3)
     @game.roll(4)
     roll_n_times(18, 0)
@@ -27,7 +25,6 @@ class GameTest < Minitest::Test
   end
 
   def test_should_be_able_to_score_multiple_frames
-    skip
     [3, 4, 2, 3, 5, 2].each do |pins|
       @game.roll pins
     end
