@@ -25,3 +25,7 @@ class BeerSong
 		"#{num == 0 ? 'no more' : num} bottle#{num == 1 ? '' : 's'}"
 	end
 end
+
+module BookKeeping
+  VERSION = 2
+end
