@@ -1,27 +1,24 @@
+require_relative 'bookkeeping'
+require_relative 'game/internals'
+
 class Game
+  include Internals
+
   def initialize
-    @score = 0
-    @prev1 = 0
-    @prev2 = 0
-    @strike_bonus = 1
-    @spare_bonus = 0
+    @frames = [Frame.new]
   end
 
-  def roll(a)
-    @score += a * @strike_bonus + @spare_bonus
-
-    if a == 10 || @prev1 == 10
-      @strike_bonus = 2
-    elsif @prev1 + @prev2 == 10
-      @score += a
-    else
-      @strike_bonuse = 1
-    end
-    @prev2 = @prev1
-    @prev1 = a
+  def roll(n)
+    raise 'Pin count outside 0..10' unless valid_roll?(n)
+    raise 'Tried to roll, but the game is over' if complete?
+    add_new_frame if @frames.last.complete?
+    @frames.last.roll(n)
   end
 
   def score
-    @score
+    raise "Can't score game before it is complete" unless complete?
+    @frames.size.times.reduce(0) { |total, index|
+      total + @frames[index].score(@frames[index + 1, 2])
+    }
   end
 end
