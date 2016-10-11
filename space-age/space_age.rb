@@ -10,9 +10,17 @@ class SpaceAge
                         uranus:  84.016846,
                         neptune: 164.79132 }.freeze
 
-    def initialize(seconds)
-      @seconds = seconds.to_f.freeze
+  def initialize(seconds)
+    @seconds = seconds.to_f.freeze
+  end
+
+  ORBITAL_PERIODS.each do |planet, orbital_period|
+    define_method "on_#{planet}" do
+      earth_years / orbital_period
     end
+  end
+
+  private
 
   def earth_years
     @seconds / SECONDS_IN_EARTH_YEAR
