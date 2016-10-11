@@ -12,13 +12,11 @@ class SpaceAgeTest < Minitest::Test
   end
 
   def test_age_in_earth_years
-    skip
     age = SpaceAge.new(1_000_000_000)
     assert_in_delta 31.69, age.on_earth, DELTA
   end
 
   def test_age_in_mercury_years
-    skip
     age = SpaceAge.new(2_134_835_688)
     assert_in_delta 67.65, age.on_earth, DELTA
     assert_in_delta 280.88, age.on_mercury, DELTA
