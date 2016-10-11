@@ -1,5 +1,9 @@
 class SpaceAge
-  def initialize
-    
+  def initialize(n)
+    @seconds = n
+  end
+
+  def seconds
+    @seconds
   end
 end
