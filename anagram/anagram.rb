@@ -1,16 +1,14 @@
 class Anagram
   def initialize(word)
-    @letters = word.chars
+    @letters = word.chars.map { |l| l.downcase }.sort
     @word = word
   end
 
   def match(words)
-    result = []
-    @letters = @letters.map { |l| l.downcase }.sort
-    words.map do |w|
-      letters = w.chars.map { |l| l.downcase }.sort
-      result << w if letters == @letters && w.downcase != @word.downcase
-    end
-    result.compact
+    words.select { |w| anagram?(w, w.chars.map { |l| l.downcase }.sort) }
+  end
+
+  def anagram?(word, letters)
+    letters == @letters && word.downcase != @word.downcase
   end
 end
