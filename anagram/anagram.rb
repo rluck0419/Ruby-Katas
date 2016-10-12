@@ -9,9 +9,7 @@ class Anagram
     @letters = @letters.map { |l| l.downcase }.sort
     words.map do |w|
       letters = w.chars.map { |l| l.downcase }.sort
-      if letters == @letters && w.downcase != @word.downcase
-        result << w
-      end
+      result << w if letters == @letters && w.downcase != @word.downcase
     end
     result.compact
   end
