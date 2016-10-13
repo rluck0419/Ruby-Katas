@@ -5,10 +5,10 @@ class Anagram
   end
 
   def match(words)
-    words.map{ |word| word }.select { |w| anagram?(w, w.chars.map { |l| l.downcase }.sort) }
+    words.select { |w| anagram?(w.downcase, w.downcase.chars.sort) }
   end
 
   def anagram?(word, letters)
-    word.downcase != @word && letters == @letters
+    word != @word && letters == @letters
   end
 end
