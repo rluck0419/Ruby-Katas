@@ -1,6 +1,6 @@
 class Anagram
-  def initialize(word)
-    @word = word.downcase
+  def initialize(str)
+    @word = str.downcase
   end
 
   def match(words)
