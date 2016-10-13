@@ -1,14 +1,13 @@
 class Anagram
   def initialize(word)
     @word = word.downcase
-    @letters = @word.chars.sort
   end
 
   def match(words)
-    words.select { |w| anagram?(w.downcase, w.downcase.chars.sort) }
+    words.select { |w| anagram?(w.downcase) }
   end
 
-  def anagram?(word, letters)
-    word != @word && letters == @letters
+  def anagram?(word)
+    word != @word && word.chars.sort == @word.chars.sort
   end
 end
