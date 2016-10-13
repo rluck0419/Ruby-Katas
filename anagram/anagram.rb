@@ -1,7 +1,7 @@
 class Anagram
   def initialize(word)
     @word = word.downcase
-    @letters = @word.chars.map { |l| l }.sort
+    @letters = @word.chars.sort
   end
 
   def match(words)
