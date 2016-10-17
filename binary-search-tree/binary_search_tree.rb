@@ -1,19 +1,27 @@
 class Bst
-  def initialize(n)
-    @n = [n]
-    @last = 1
+  VERSION = 1
+  attr_reader :data, :left, :right
+
+  def initialize(data=nil)
+    @data = data
+    @left = nil
+    @right = nil
   end
 
-  def insert(num)
-    @n = [num, @n].flatten
+  def insert(new_data)
+    if new_data <= data
+      left.nil? ? @left = self.class.new(new_data) :
+      left.insert(new_data)
+    else
+      right.nil? ? @right = self.class.new(new_data) : right.insert(new_data)
+    end
   end
 
-  def left
-    @last -= 1
-    self
-  end
+  def each(&block)
+    return enum_for(:each) unless block_given?
 
-  def data
-    @n[-@last]
+    left.each(&block) unless left.nil?
+    yield data
+    right.each(&block) unless right.nil?
   end
 end
